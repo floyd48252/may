@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="MKOPA Electric Company electric bikes in Rongai. Browse our collection and order on WhatsApp.">
+    <title>MKOPA Electric | Move Further</title>
+    <style>
+         :root {
+            --ink: #17201b;
+            --muted: #68736d;
+            --lime: #d7f34a;
+            --green: #174d39;
+            --cream: #f6f4ed;
+            --line: #d9ded6;
+            --white: #fff
+        }
+        
+        * {
+            box-sizing: border-box
+        }
+        
+        html {
+            scroll-behavior: smooth
+        }
+        
+        body {
+            margin: 0;
+            background: var(--cream);
+            color: var(--ink);
+            font-family: "Trebuchet MS", Arial, sans-serif
+        }
+        
+        a {
+            color: inherit
+        }
+        
+        .wrap {
+            width: min(1180px, calc(100% - 40px));
+            margin: auto
+        }
+        
+        .topbar {
+            background: var(--green);
+            color: #f7fff2;
+            font-size: .78rem;
+            letter-spacing: .04em
+        }
+        
+        .topbar .wrap {
+            min-height: 38px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px
+        }
+        
+        .topbar a {
+            color: var(--lime);
+            font-weight: bold;
+            text-decoration: none
+        }
+        
+        header {
+            background: var(--green);
+            color: #fff;
+            padding: 24px 0 86px;
+            position: relative;
+            overflow: hidden
+        }
+        
+        header:before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: rgba(8, 25, 18, .7);
+            z-index: 0
+        }
+        
+        header:after {
+            content: "";
+            position: absolute;
+            right: -10%;
+            bottom: -80px;
+            width: 48vw;
+            height: 220px;
+            background: var(--lime);
+            transform: rotate(-7deg);
+            opacity: .18;
+            z-index: 0
+        }
+        
+        .hero-backdrop {
+            position: absolute;
+            inset: 0;
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            grid-auto-rows: 1fr;
+            gap: 2px;
+            opacity: .62;
+            filter: saturate(.8) contrast(1.05);
+            z-index: 0
+        }
+        
+        .hero-backdrop img {
+            width: 100%;
+            height: 100%;
+            min-width: 0;
+            object-fit: cover;
+            object-position: center;
+            opacity: .82
+        }
+        
+        nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: relative;
+            z-index: 1
+        }
+        
+        .logo {
+            font: 700 1.3rem Georgia, serif
+        }
+        
+        .logo span {
+            color: var(--lime)
+        }
+        
+        nav a {
+            text-decoration: none;
+            font-size: .88rem;
+            margin-left: 26px;
+            opacity: .9
+        }
+        
+        .hero {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) minmax(260px, .72fr);
+            gap: 48px;
+            align-items: center;
+            max-width: 1080px;
+            position: relative;
+            z-index: 1;
+            padding-top: 58px
+        }
+        
+        .hero-copy {
+            min-width: 0
+        }
+        
+        .hero-photo {
+            width: 100%;
+            height: 390px;
+            padding: 14px;
+            border: 1px solid rgba(255, 255, 255, .45);
+            background: rgba(246, 244, 237, .14);
+            transform: rotate(2deg)
+        }
+        
+        .hero-photo img {
+            width: 100%;
+            height: 100%;
+            display: block;
+            object-fit: contain;
+            background: #dfe4dc
+        }
+        
+        .eyebrow {
+            color: var(--lime);
+            text-transform: uppercase;
+            font-size: .72rem;
+            font-weight: bold;
+            letter-spacing: .18em
+        }
+        
+        h1,
+        h2,
+        h3 {
+            font-family: Georgia, serif;
+            font-weight: 400;
+            line-height: 1.04
+        }
+        
+        h1 {
+            font-size: clamp(3.3rem, 7vw, 6.5rem);
+            letter-spacing: -.07em;
+            margin: 16px 0 22px
+        }
+        
+        .hero p {
+            color: #d9e6dc;
+            max-width: 470px;
+            font-size: 1.08rem;
+            line-height: 1.7
+        }
+        
+        .actions {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-top: 28px
+        }
+        
+        .button {
+            border: 0;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 14px 20px;
+            border-radius: 2px;
+            font: 700 .82rem "Trebuchet MS", Arial, sans-serif;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: .07em;
+            transition: transform .2s
+        }
+        
+        .button:hover {
+            transform: translateY(-2px)
+        }
+        
+        .button.primary {
+            background: var(--lime);
+            color: var(--ink)
+        }
+        
+        .button.dark {
+            background: var(--green);
+            color: #fff
+        }
+        
+        .button.ghost {
+            background: #25D366;
+            color: #fff;
+            border: 1px solid #25D366
+        }
+        
+        .hero-image {
+            display: none
+        }
+        
+        .hero-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            object-position: center;
+            transform: rotate(-3deg)
+        }
+        
+        main {
+            padding: 76px 0 50px
+        }
+        
+        .section-head {
+            display: flex;
+            align-items: end;
+            justify-content: space-between;
+            gap: 24px;
+            margin-bottom: 25px
+        }
+        
+        .section-head h2 {
+            font-size: clamp(2.3rem, 4vw, 4rem);
+            letter-spacing: -.06em;
+            margin: 10px 0 0
+        }
+        
+        .section-head p {
+            color: var(--muted);
+            max-width: 350px;
+            margin: 0;
+            line-height: 1.6
+        }
+        
+        .featured {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px
+        }
+        
+        .feature-card {
+            background: var(--white);
+            border: 1px solid var(--line)
+        }
+        
+        .feature-card figure {
+            margin: 0;
+            height: 300px;
+            overflow: hidden;
+            background: #e6e8df;
+            padding: 12px
+        }
+        
+        .feature-card figure img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            object-position: center;
+            transition: transform .5s
+        }
+        
+        .feature-card:hover img {
+            transform: scale(1.05)
+        }
+        
+        .feature-body {
+            padding: 20px
+        }
+        
+        .feature-body h3 {
+            margin: 0 0 8px;
+            font-size: 1.6rem
+        }
+        
+        .feature-body p {
+            color: var(--muted);
+            font-size: .9rem;
+            line-height: 1.55;
+            min-height: 44px
+        }
+        
+        .price {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid var(--line);
+            margin: 18px 0;
+            padding-top: 14px
+        }
+        
+        .price strong {
+            font-size: 1.15rem
+        }
+        
+        .price small {
+            color: var(--muted)
+        }
+        
+        .gallery-section {
+            margin-top: 100px
+        }
+        
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-auto-rows: 230px;
+            gap: 12px
+        }
+        
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            background: #dfe4dc;
+            padding: 0;
+            display: flex;
+            flex-direction: column
+        }
+        
+        .gallery-item:nth-child(3n+1) {
+            grid-row: span 2
+        }
+        
+        .gallery-item img {
+            display: block;
+            width: 100%;
+            height: calc(100% - 76px);
+            min-height: 0;
+            padding: 10px;
+            object-fit: contain;
+            object-position: center;
+            transition: transform .45s
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.03)
+        }
+        
+        .gallery-info {
+            min-height: 76px;
+            padding: 10px 10px 8px;
+            background: rgba(23, 77, 57, .96);
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 3px
+        }
+        
+        .gallery-info strong {
+            font-size: .78rem;
+            color: var(--lime)
+        }
+        
+        .gallery-info span {
+            font-size: .7rem;
+            line-height: 1.25
+        }
+        
+        .gallery-item figcaption {
+            position: absolute;
+            left: 10px;
+            right: 10px;
+            bottom: 86px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 8px;
+            opacity: 0;
+            transform: translateY(8px);
+            transition: .25s
+        }
+        
+        .gallery-item:hover figcaption,
+        .gallery-item:focus-within figcaption {
+            opacity: 1;
+            transform: none
+        }
+        
+        .gallery-item figcaption span {
+            color: #fff;
+            font-size: .75rem;
+            font-weight: bold;
+            text-shadow: 0 1px 4px #000
+        }
+        
+        .mini-order {
+            border: 0;
+            background: var(--lime);
+            color: var(--ink);
+            padding: 9px 10px;
+            cursor: pointer;
+            font-size: .68rem;
+            font-weight: bold;
+            text-transform: uppercase
+        }
+        
+        .gallery-item figcaption .mini-order {
+            position: absolute;
+            right: 0;
+            bottom: 0
+        }
+        
+        .trust {
+            margin-top: 100px;
+            background: var(--lime);
+            padding: 44px 0
+        }
+        
+        .trust-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px
+        }
+        
+        .trust strong {
+            display: block;
+            font: 400 1.55rem Georgia, serif;
+            margin-bottom: 8px
+        }
+        
+        .trust p {
+            margin: 0;
+            line-height: 1.5;
+            font-size: .9rem;
+            max-width: 260px
+        }
+        
+        footer {
+            background: var(--ink);
+            color: #eef3e8;
+            padding: 52px 0
+        }
+        
+        .footer-grid {
+            display: flex;
+            justify-content: space-between;
+            gap: 30px;
+            flex-wrap: wrap
+        }
+        
+        footer h2 {
+            font-size: 2rem;
+            margin: 0 0 10px
+        }
+        
+        footer p {
+            color: #aebbb1;
+            line-height: 1.7;
+            margin: 5px 0
+        }
+        
+        footer a {
+            color: var(--lime);
+            text-decoration: none
+        }
+        
+        .fine {
+            border-top: 1px solid #34423a;
+            margin-top: 35px;
+            padding-top: 18px;
+            font-size: .75rem;
+            color: #829087
+        }
+        
+        @media(max-width:800px) {
+            .wrap {
+                width: min(100% - 28px, 560px)
+            }
+            header {
+                padding-bottom: 70px
+            }
+            nav a {
+                margin-left: 12px
+            }
+            nav a:first-of-type {
+                display: none
+            }
+            .hero {
+                grid-template-columns: 1fr;
+                gap: 28px;
+                padding-top: 48px
+            }
+            .hero-photo {
+                height: 280px;
+                max-width: 420px;
+                justify-self: center
+            }
+            .hero-backdrop {
+                grid-template-columns: repeat(3, 1fr)
+            }
+            .featured {
+                grid-template-columns: 1fr
+            }
+            .feature-card figure {
+                height: 350px
+            }
+            .section-head {
+                display: block
+            }
+            .section-head p {
+                margin-top: 15px
+            }
+            .gallery {
+                grid-template-columns: repeat(2, 1fr);
+                grid-auto-rows: 230px
+            }
+            .gallery-item:nth-child(3n+1) {
+                grid-row: span 1
+            }
+            .gallery-item:nth-child(4n+1) {
+                grid-row: span 2
+            }
+            .trust-grid {
+                grid-template-columns: 1fr;
+                gap: 25px
+            }
+        }
+        
+        @media(max-width:450px) {
+            h1 {
+                font-size: 3.5rem
+            }
+            .topbar .wrap {
+                display: block;
+                padding: 9px 0;
+                line-height: 1.6
+            }
+            .topbar .wrap span {
+                display: block
+            }
+            .gallery {
+                grid-template-columns: 1fr 1fr;
+                gap: 7px;
+                grid-auto-rows: 230px
+            }
+            .gallery-item figcaption {
+                opacity: 1;
+                transform: none
+            }
+            .gallery-item figcaption span {
+                display: none
+            }
+            .mini-order {
+                width: 100%
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="hero-backdrop" id="hero-backdrop" aria-hidden="true"></div>
+        <div class="wrap">
+            <nav>
+                <div class="logo">MKOPA <span>ELECTRIC</span></div>
+                <div><a href="#collection">Collection</a><a href="#gallery">Gallery</a><a href="contact.html">Contact</a></div>
+            </nav>
+            <div class="hero">
+                <div class="hero-copy">
+                    <div class="eyebrow">Charge ahead</div>
+                    <h1>Move<br>different.</h1>
+                    <p>Reliable electric bikes for daily commutes, deliveries and a cleaner way to get around Rongai.</p>
+                    <div class="actions"><a class="button primary" href="#collection">Explore bikes</a><a class="button ghost" href="https://wa.me/254750687960?text=Hello%20MKOPA%20Electric%2C%20I%20would%20like%20to%20ask%20about%20your%20electric%20bikes." target="_blank"
+                            rel="noopener">Chat on WhatsApp</a></div>
+                </div>
+                <div class="hero-photo"><img src="./image.jpeg" alt="MKOPA electric bike"></div>
+            </div>
+        </div>
+    </header>
+    <main>
+        <section class="wrap" id="collection">
+            <div class="section-head">
+                <div>
+                    <div class="eyebrow" style="color:var(--green)">Find your ride</div>
+                    <h2>Built for the<br>everyday.</h2>
+                </div>
+                <p>Choose a ride that fits your route. Ask us on WhatsApp about availability, colours, financing and delivery.</p>
+            </div>
+            <div class="featured">
+                <article class="feature-card">
+                    <figure><img src="./electric%20bikes%20%20%287%29.jpeg" alt="City commuter electric bike"></figure>
+                    <div class="feature-body">
+                        <h3>City Commuter</h3>
+                        <p>Comfortable, nimble and ready for the daily run.</p>
+                        <div class="price"><strong>From KSh 5,000</strong><small>or daily plan</small></div><button class="button dark order" data-bike="City Commuter E-Bike">Order on WhatsApp</button></div>
+                </article>
+                <article class="feature-card">
+                    <figure><img src="./electric%20bikes%20%20%2811%29.jpeg" alt="Electric bike for delivery work"></figure>
+                    <div class="feature-body">
+                        <h3>Power Cargo</h3>
+                        <p>More carrying power for deliveries and heavier loads.</p>
+                        <div class="price"><strong>From KSh 5,000</strong><small>or daily plan</small></div><button class="button dark order" data-bike="Power Cargo E-Bike">Order on WhatsApp</button></div>
+                </article>
+                <article class="feature-card">
+                    <figure><img src="./electric%20bikes%20%20%2817%29.jpeg" alt="Electric bike detail"></figure>
+                    <div class="feature-body">
+                        <h3>Everyday Range</h3>
+                        <p>Removable battery, dependable range and low running cost.</p>
+                        <div class="price"><strong>From KSh 5,000</strong><small>or daily plan</small></div><button class="button dark order" data-bike="Everyday Range E-Bike">Order on WhatsApp</button></div>
+                </article>
+            </div>
+        </section>
+        <section class="wrap gallery-section" id="gallery">
+            <div class="section-head">
+                <div>
+                    <div class="eyebrow" style="color:var(--green)">The full collection</div>
+                    <h2>See them<br>up close.</h2>
+                </div>
+                <p>Browse all the bikes in our current photo collection. Click any image to start an inquiry.</p>
+            </div>
+            <div class="gallery" id="bike-gallery"></div>
+        </section>
+    </main>
+    <section class="trust">
+        <div class="wrap trust-grid">
+            <div><strong>Small deposit.</strong>
+                <p>Ask about plans starting from a KSh 5,000 deposit.</p>
+            </div>
+            <div><strong>KSh 75 daily.</strong>
+                <p>Flexible daily payment examples over 24 months.</p>
+            </div>
+            <div><strong>Local support.</strong>
+                <p>Based in Rongai and ready to help you choose.</p>
+            </div>
+        </div>
+    </section>
+    <footer id="contact">
+        <div class="wrap">
+            <div class="footer-grid">
+                <div>
+                    <h2>Ready to ride?</h2>
+                    <p>Start a conversation and we will help you find the right bike.</p><a class="button primary" href="contact.html">Contact us</a>
+                </div>
+                <div>
+                    <p><a href="https://wa.me/254750687960" target="_blank" rel="noopener">WhatsApp: 0750 687 960</a></p>
+                    <p>Call: 0783 277 392</p>
+                    <p><a href="mailto:owinolawrence87@gmail.com">owinolawrence87@gmail.com</a></p>
+                </div>
+            </div>
+            <div class="fine">MKOPA Electric Company &middot; Rongai, Kenya</div>
+        </div>
+    </footer>
+    <script>
+        const whatsappNumber = '254750687960';
+        const images = Array.from({
+            length: 20
+        }, (_, index) => `electric bikes  (${index+1}).jpeg`);
+        const assetUrl = image => image.replace(/ /g, '%20').replace(/\(/g, '%28').replace(/\)/g, '%29');
+        const bikeDetails = [
+            ['Compact city ride', 'Up to 45 km/h'],
+            ['Comfortable daily commuter', 'Up to 45 km/h'],
+            ['Lightweight urban bike', 'Up to 40 km/h'],
+            ['Smooth ride for town trips', 'Up to 45 km/h'],
+            ['Practical everyday transport', 'Up to 45 km/h'],
+            ['Reliable commuter build', 'Up to 45 km/h'],
+            ['City ride with easy handling', 'Up to 45 km/h'],
+            ['Long-range daily commuter', 'Up to 50 km/h'],
+            ['Agile bike for busy streets', 'Up to 45 km/h'],
+            ['Comfortable work and errands bike', 'Up to 45 km/h'],
+            ['Strong delivery-ready frame', 'Up to 50 km/h'],
+            ['Cargo-friendly electric bike', 'Up to 50 km/h'],
+            ['Stable bike for longer routes', 'Up to 50 km/h'],
+            ['Everyday bike with low running cost', 'Up to 45 km/h'],
+            ['Easy-to-charge commuter bike', 'Up to 45 km/h'],
+            ['Versatile ride for Rongai roads', 'Up to 45 km/h'],
+            ['Balanced bike for daily use', 'Up to 45 km/h'],
+            ['Comfortable utility e-bike', 'Up to 45 km/h'],
+            ['Dependable delivery companion', 'Up to 50 km/h'],
+            ['Clean, quiet urban transport', 'Up to 45 km/h']
+        ];
+        const gallery = document.getElementById('bike-gallery');
+        const heroBackdrop = document.getElementById('hero-backdrop');
+        images.forEach((image, index) => {
+            const backdropImage = document.createElement('img');
+            backdropImage.src = `./${assetUrl(image)}`;
+            backdropImage.alt = '';
+            backdropImage.loading = index < 5 ? 'eager' : 'lazy';
+            heroBackdrop.appendChild(backdropImage);
+        });
+        images.forEach((image, index) => {
+            const figure = document.createElement('figure');
+            figure.className = 'gallery-item';
+            const [description, speed] = bikeDetails[index];
+            figure.innerHTML = `<img src="./${assetUrl(image)}" alt="MKOPA electric bike ${index+1}"><div class="gallery-info"><strong>Bike ${String(index+1).padStart(2,'0')} · ${speed}</strong><span>${description}</span></div><figcaption><button class="mini-order order" data-bike="Bike ${index+1}">Order</button></figcaption>`;
+            gallery.appendChild(figure)
+        });
+        document.querySelectorAll('.order').forEach(button => {
+            button.addEventListener('click', () => {
+                const bike = button.dataset.bike;
+                const message = `Hello MKOPA Electric, I am interested in the ${bike}. Please share availability, price and payment options.`;
+                window.open(`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`, '_blank', 'noopener')
+            })
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Contact MKOPA Electric in Rongai for electric bike inquiries, orders and order tracking.">
+    <title>Contact MKOPA Electric</title>
+    <style>
+         :root {
+            --ink: #17201b;
+            --muted: #68736d;
+            --lime: #d7f34a;
+            --green: #174d39;
+            --cream: #f6f4ed;
+            --line: #d9ded6;
+            --white: #fff
+        }
+        
+        * {
+            box-sizing: border-box
+        }
+        
+        html {
+            scroll-behavior: smooth
+        }
+        
+        body {
+            margin: 0;
+            background: var(--cream);
+            color: var(--ink);
+            font-family: "Trebuchet MS", Arial, sans-serif
+        }
+        
+        a {
+            color: inherit
+        }
+        
+        .wrap {
+            width: min(1180px, calc(100% - 40px));
+            margin: auto
+        }
+        
+        .topbar {
+            background: var(--green);
+            color: #f7fff2;
+            font-size: .78rem;
+            letter-spacing: .04em
+        }
+        
+        .topbar .wrap {
+            min-height: 38px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px
+        }
+        
+        .topbar a {
+            color: var(--lime);
+            font-weight: bold;
+            text-decoration: none
+        }
+        
+        header {
+            background: var(--green);
+            color: #fff;
+            padding: 24px 0 78px;
+            position: relative;
+            overflow: hidden
+        }
+        
+        header:before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: rgba(8, 25, 18, .7);
+            z-index: 0
+        }
+        
+        header:after {
+            content: "";
+            position: absolute;
+            right: -10%;
+            bottom: -90px;
+            width: 48vw;
+            height: 220px;
+            background: var(--lime);
+            transform: rotate(-7deg);
+            opacity: .18;
+            z-index: 0
+        }
+        
+        .hero-backdrop {
+            position: absolute;
+            inset: 0;
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            grid-auto-rows: 1fr;
+            gap: 2px;
+            opacity: .62;
+            filter: saturate(.8) contrast(1.05);
+            z-index: 0
+        }
+        
+        .hero-backdrop img {
+            width: 100%;
+            height: 100%;
+            min-width: 0;
+            object-fit: cover;
+            object-position: center;
+            opacity: .82
+        }
+        
+        nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: relative;
+            z-index: 1
+        }
+        
+        .logo {
+            font: 700 1.3rem Georgia, serif
+        }
+        
+        .logo span {
+            color: var(--lime)
+        }
+        
+        nav a {
+            text-decoration: none;
+            font-size: .88rem;
+            margin-left: 26px;
+            opacity: .9
+        }
+        
+        .hero {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) minmax(260px, .72fr);
+            gap: 48px;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+            padding-top: 65px;
+            max-width: 1080px
+        }
+        
+        .hero-copy {
+            min-width: 0
+        }
+        
+        .hero-photo {
+            width: 100%;
+            height: 330px;
+            padding: 14px;
+            border: 1px solid rgba(255, 255, 255, .45);
+            background: rgba(246, 244, 237, .14);
+            transform: rotate(2deg)
+        }
+        
+        .hero-photo img {
+            width: 100%;
+            height: 100%;
+            display: block;
+            object-fit: contain;
+            background: #dfe4dc
+        }
+        
+        .eyebrow {
+            color: var(--lime);
+            text-transform: uppercase;
+            font-size: .72rem;
+            font-weight: bold;
+            letter-spacing: .18em
+        }
+        
+        h1,
+        h2 {
+            font-family: Georgia, serif;
+            font-weight: 400;
+            line-height: 1.04
+        }
+        
+        h1 {
+            font-size: clamp(3rem, 7vw, 6rem);
+            letter-spacing: -.07em;
+            margin: 16px 0 20px
+        }
+        
+        .hero p {
+            color: #d9e6dc;
+            max-width: 570px;
+            font-size: 1.08rem;
+            line-height: 1.7
+        }
+        
+        .button {
+            border: 0;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 14px 20px;
+            border-radius: 2px;
+            font: 700 .82rem "Trebuchet MS", Arial, sans-serif;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: .07em;
+            transition: transform .2s
+        }
+        
+        .button:hover {
+            transform: translateY(-2px)
+        }
+        
+        .button.primary {
+            background: var(--lime);
+            color: var(--ink)
+        }
+        
+        .button.dark {
+            background: var(--green);
+            color: #fff
+        }
+        
+        main {
+            padding: 76px 0 100px
+        }
+        
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 26px;
+            align-items: start
+        }
+        
+        .panel {
+            background: var(--white);
+            border: 1px solid var(--line);
+            padding: 30px
+        }
+        
+        .panel h2 {
+            font-size: 2.6rem;
+            letter-spacing: -.05em;
+            margin: 0 0 10px
+        }
+        
+        .panel>p {
+            color: var(--muted);
+            line-height: 1.6;
+            margin: 0 0 24px
+        }
+        
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px
+        }
+        
+        label {
+            display: block;
+            color: var(--muted);
+            font-size: .78rem;
+            font-weight: bold;
+            letter-spacing: .04em;
+            margin-bottom: 15px
+        }
+        
+        input,
+        select,
+        textarea {
+            display: block;
+            width: 100%;
+            margin-top: 7px;
+            border: 1px solid var(--line);
+            border-radius: 2px;
+            background: #fbfcf8;
+            color: var(--ink);
+            font: inherit;
+            padding: 13px
+        }
+        
+        textarea {
+            min-height: 130px;
+            resize: vertical
+        }
+        
+        .form-note {
+            font-size: .78rem;
+            color: var(--muted);
+            line-height: 1.5;
+            margin: 14px 0 0
+        }
+        
+        .contact-list {
+            display: grid;
+            gap: 14px;
+            margin-top: 26px
+        }
+        
+        .contact-list a {
+            text-decoration: none;
+            color: var(--green);
+            font-weight: bold
+        }
+        
+        .contact-list span {
+            display: block;
+            color: var(--muted);
+            font-size: .78rem;
+            margin-bottom: 3px
+        }
+        
+        .map-panel {
+            padding: 0;
+            overflow: hidden
+        }
+        
+        .map-panel iframe {
+            display: block;
+            width: 100%;
+            height: 440px;
+            border: 0
+        }
+        
+        .map-info {
+            padding: 24px 28px
+        }
+        
+        .map-info h2 {
+            margin: 0 0 8px;
+            font-size: 2rem
+        }
+        
+        .map-info p {
+            color: var(--muted);
+            line-height: 1.6;
+            margin: 0 0 16px
+        }
+        
+        .map-actions {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap
+        }
+        
+        .tracking {
+            margin-top: 26px;
+            background: var(--lime);
+            padding: 28px 30px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 24px
+        }
+        
+        .tracking h2 {
+            font-size: 2rem;
+            margin: 0 0 7px
+        }
+        
+        .tracking p {
+            margin: 0;
+            line-height: 1.5;
+            font-size: .9rem
+        }
+        
+        .tracking .button {
+            flex: none
+        }
+        
+        footer {
+            background: var(--ink);
+            color: #eef3e8;
+            padding: 42px 0
+        }
+        
+        .footer-grid {
+            display: flex;
+            justify-content: space-between;
+            gap: 30px;
+            flex-wrap: wrap
+        }
+        
+        footer h2 {
+            font-size: 2rem;
+            margin: 0 0 10px
+        }
+        
+        footer p {
+            color: #aebbb1;
+            line-height: 1.7;
+            margin: 5px 0
+        }
+        
+        footer a {
+            color: var(--lime);
+            text-decoration: none
+        }
+        
+        .fine {
+            border-top: 1px solid #34423a;
+            margin-top: 30px;
+            padding-top: 18px;
+            font-size: .75rem;
+            color: #829087
+        }
+        
+        @media(max-width:760px) {
+            .wrap {
+                width: min(100% - 28px, 560px)
+            }
+            .topbar .wrap {
+                display: block;
+                padding: 9px 0;
+                line-height: 1.6
+            }
+            .topbar .wrap span {
+                display: block
+            }
+            header {
+                padding-bottom: 65px
+            }
+            .hero {
+                grid-template-columns: 1fr;
+                gap: 28px
+            }
+            .hero-photo {
+                height: 260px;
+                max-width: 420px;
+                justify-self: center
+            }
+            .hero-backdrop {
+                grid-template-columns: repeat(3, 1fr)
+            }
+            nav a {
+                margin-left: 12px
+            }
+            nav a:first-of-type,
+            nav a:nth-of-type(2) {
+                display: none
+            }
+            .contact-grid {
+                grid-template-columns: 1fr
+            }
+            .form-row {
+                grid-template-columns: 1fr
+            }
+            .panel {
+                padding: 22px
+            }
+            .map-panel iframe {
+                height: 350px
+            }
+            .tracking {
+                display: block
+            }
+            .tracking .button {
+                margin-top: 18px
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="hero-backdrop" id="hero-backdrop" aria-hidden="true"></div>
+        <div class="wrap">
+            <nav>
+                <div class="logo">MKOPA <span>ELECTRIC</span></div>
+                <div><a href="index.html#collection">Collection</a><a href="index.html#gallery">Gallery</a><a href="contact.html">Contact</a></div>
+            </nav>
+            <div class="hero">
+                <div class="hero-copy">
+                    <div class="eyebrow">We are ready to help</div>
+                    <h1>Talk to<br>the team.</h1>
+                    <p>Ask about a bike, request a quote, arrange delivery or check the status of an order. We will reply on WhatsApp.</p>
+                </div>
+                <div class="hero-photo"><img src="./image.jpeg" alt="MKOPA electric bike"></div>
+            </div>
+        </div>
+    </header>
+    <main class="wrap">
+        <div class="contact-grid">
+            <section class="panel">
+                <h2>Send an inquiry</h2>
+                <p>Fill in your details and your message will open directly in WhatsApp.</p>
+                <form id="inquiry-form">
+                    <div class="form-row"><label>Full name<input id="name" type="text" required placeholder="Your name"></label><label>Phone number<input id="phone" type="tel" required placeholder="07... or +254..."></label></div>
+                    <label>What do you need help with?<select id="request" required><option value="Bike inquiry">Bike inquiry</option><option value="Price and financing">Price and financing</option><option value="Delivery information">Delivery information</option><option value="Order tracking">Order tracking</option><option value="Other question">Other question</option></select></label>
+                    <label>Message<textarea id="message" required placeholder="Tell us which bike or order you are asking about..."></textarea></label>
+                    <button class="button dark" type="submit">Send via WhatsApp</button>
+                    <p id="form-status" class="form-note" hidden></p>
+                </form>
+                <div class="contact-list">
+                    <div><span>WhatsApp</span><a href="https://wa.me/254750687960" target="_blank" rel="noopener">0750 687 960</a></div>
+                    <div><span>Call</span><a href="tel:+254783277392">0783 277 392</a></div>
+                    <div><span>Email</span><a href="mailto:owinolawrence87@gmail.com">owinolawrence87@gmail.com</a></div>
+                </div>
+            </section>
+            <section class="panel map-panel">
+                <iframe title="Map showing Rongai, Kenya" src="https://www.google.com/maps?q=Rongai%2C%20Kenya&output=embed" loading="lazy" allowfullscreen></iframe>
+                <div class="map-info">
+                    <h2>Find us in Rongai</h2>
+                    <p>Our service area is Rongai and surrounding areas. Use the map to plan your route or open directions on your phone.</p>
+                    <div class="map-actions"><a class="button dark" href="https://www.google.com/maps/dir/?api=1&destination=Rongai%2C%20Kenya" target="_blank" rel="noopener">Get directions</a><a class="button primary" href="https://wa.me/254750687960?text=Hello%20MKOPA%20Electric%2C%20I%20need%20help%20with%20an%20order."
+                            target="_blank" rel="noopener">Track an order</a></div>
+                </div>
+            </section>
+        </div>
+        <section class="tracking">
+            <div>
+                <h2>Already placed an order?</h2>
+                <p>Send your name, phone number or order details and we will check it for you.</p>
+            </div><a class="button dark" href="#inquiry-form">Check order status</a></section>
+    </main>
+    <footer>
+        <div class="wrap">
+            <div class="footer-grid">
+                <div>
+                    <h2>MKOPA Electric</h2>
+                    <p>Electric mobility for everyday life in Rongai.</p>
+                </div>
+                <div>
+                    <p><a href="https://wa.me/254750687960" target="_blank" rel="noopener">WhatsApp: 0750 687 960</a></p>
+                    <p><a href="mailto:owinolawrence87@gmail.com">owinolawrence87@gmail.com</a></p>
+                </div>
+            </div>
+            <div class="fine">MKOPA Electric Company &middot; Rongai, Kenya &middot; <a href="index.html">Back to bikes</a></div>
+        </div>
+    </footer>
+    <script>
+        const images = Array.from({
+            length: 20
+        }, (_, index) => `electric bikes  (${index+1}).jpeg`);
+        const assetUrl = image => image.replace(/ /g, '%20').replace(/\(/g, '%28').replace(/\)/g, '%29');
+        const heroBackdrop = document.getElementById('hero-backdrop');
+        images.forEach((image, index) => {
+            const backdropImage = document.createElement('img');
+            backdropImage.src = `./${assetUrl(image)}`;
+            backdropImage.alt = '';
+            backdropImage.loading = index < 5 ? 'eager' : 'lazy';
+            heroBackdrop.appendChild(backdropImage);
+        });
+        const form = document.getElementById('inquiry-form');
+        const status = document.getElementById('form-status');
+        form.addEventListener('submit', (event) => {
+            event.preventDefault();
+            const name = document.getElementById('name').value.trim();
+            const phone = document.getElementById('phone').value.trim();
+            const request = document.getElementById('request').value;
+            const message = document.getElementById('message').value.trim();
+            const text = `Hello MKOPA Electric.\nName: ${name}\nPhone: ${phone}\nRequest: ${request}\nMessage: ${message}`;
+            window.open(`https://wa.me/254750687960?text=${encodeURIComponent(text)}`, '_blank', 'noopener');
+            status.textContent = 'Opening WhatsApp with your inquiry...';
+            status.hidden = false;
+        });
+    </script>
+</body>
+
+</html>
